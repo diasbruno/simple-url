@@ -14,6 +14,10 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'simplecov'
+
+SimpleCov.start
+
 require './lib/url.rb'
 
 RSpec.configure do |config|
