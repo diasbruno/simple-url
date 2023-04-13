@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module SimpleUrl
   class Url
     attr_accessor :url, :query
