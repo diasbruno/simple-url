@@ -76,6 +76,23 @@ irb> a.url.path = "/asdf"
 => "/asdf"
 irb> a.to_s
 => "https://okokok.com/asdf?a=2"
+irb> a.query.add('b', 2)
+=> 2
+irb> a.to_s
+=> "https://okokok.com/path?a=2&b=2"
+irb(main):039:0> a.query.add('a', 43)
+=> 43
+irb(main):040:0> a.to_s
+=> "https://okokok.com/path?a=43&b=2"
+
+irb> a = SimpleUrl::Url.new('https://okokok.com/path?a=1&a=2', SimpleUrl::KeyValueQueryString)
+=> #<SimpleUrl::Url:0x0000000003c32f78 @url=#<URI::HTTPS https://okokok.com/path?a=1&a=2>, @query_string_class=SimpleUrl::KeyValueQueryString, @q...
+irb> a.query.to_s
+=> "a=1&a=2"
+irb(main):043:0> a.query.add('a', 3)
+=> [["a", "1"], ["a", "2"], ["a", 3]]
+irb(main):044:0> a.query.to_s
+=> "a=1&a=2&a=3"
 ```
 
 ## license
