@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = 'simple-url'
-  s.version = '1.0.0'
+  s.version = '2.0.0'
   s.summary = 'A nice way to work with URLs.'
   s.description = 'A nice way to work with URLs.'
   s.authors = ['Bruno Dias']
   s.email = 'dias.h.bruno@gmail.com'
   s.files = [
-    'lib/key_value_query_string.rb',
-    'lib/url.rb',
+    'lib/simple_url/key_value_query_string.rb',
+    'lib/simple_url.rb',
     'readme.md',
     'LICENSE'
   ]

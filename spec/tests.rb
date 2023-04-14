@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/key_value_query_string.rb'
+require 'simple_url/key_value_query_string.rb'
 
 RSpec.describe SimpleUrl::Url do
   describe 'simple url' do

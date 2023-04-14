@@ -18,7 +18,7 @@ require 'simplecov'
 
 SimpleCov.start
 
-require './lib/url.rb'
+require 'simple_url'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
