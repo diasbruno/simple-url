@@ -24,6 +24,32 @@ RSpec.describe SimpleUrl::Url do
       expect(url.query.to_s).to eq('a=meh&b=mehmeh')
     end
 
+    describe 'path' do
+      it 'should parse correctly path' do
+        url = with_url_query_string('http://the-url.com/the-path?a=meh&b=mehmeh')
+        expect(url.to_s).to eq('http://the-url.com/the-path?a=meh&b=mehmeh')
+      end
+
+      it 'should append a path' do
+        url = with_url_query_string('http://the-url.com/the-path?a=meh&b=mehmeh')
+        url.append_path('appended')
+        expect(url.to_s).to eq('http://the-url.com/the-path/appended?a=meh&b=mehmeh')
+      end
+
+      it 'appended path should not be normalized' do
+        url = with_url_query_string('http://the-url.com/the-path?a=meh&b=mehmeh')
+        url.append_path('appended/..')
+        expect(url.to_s).to eq('http://the-url.com/the-path/appended/..?a=meh&b=mehmeh')
+      end
+
+      it 'normalized appended path' do
+        url = with_url_query_string('http://the-url.com/the-path?a=meh&b=mehmeh')
+        url.append_path('appended/..')
+        url.normalize_path
+        expect(url.to_s).to eq('http://the-url.com/the-path?a=meh&b=mehmeh')
+      end
+    end
+
     describe 'query string' do
       it "shouldn't find item on query string" do
         url = with_url_query_string('http://the-url.com?b=meh&b=mehmeh')
