@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'simple-url'
-  s.version = '2.0.0'
+  s.version = '2.0.1'
   s.summary = 'A nice way to work with URLs.'
   s.description = 'A nice way to work with URLs.'
   s.authors = ['Bruno Dias']
